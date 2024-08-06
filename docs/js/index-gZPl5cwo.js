@@ -1,0 +1,1 @@
+import{m as e,s as n}from"./vue-vendor-BViktWxk.js";import{ag as o}from"./index-Bl78Oyjk.js";const r={};function t(c,a){return e(),n("div",null," Not Find Page ")}const f=o(r,[["render",t]]);export{f as default};

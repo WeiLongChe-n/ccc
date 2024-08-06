@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "strictNullChecks":true, // undefined和null就不能赋值给其他类型的变量（除了any类型和unknown类型）
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],

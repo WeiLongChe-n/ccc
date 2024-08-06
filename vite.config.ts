@@ -2,7 +2,7 @@
  * @Author: 陈威隆 18700880154@163.com
  * @Date: 2024-07-25 14:32:26
  * @LastEditors: 陈威隆 18700880154@163.com
- * @LastEditTime: 2024-07-31 11:18:27
+ * @LastEditTime: 2024-08-05 17:57:03
  * @FilePath: \ccc\vite.config.ts
  * @Description: 
  */
@@ -12,6 +12,7 @@ import { resolve } from 'path';
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite';
 import { ArcoResolver } from 'unplugin-vue-components/resolvers';
+import UnoCSS from 'unocss/vite'
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
 }
@@ -20,7 +21,8 @@ export default defineConfig({
   base:'/ccc',
   plugins: [
     vue(),
-     AutoImport({
+    UnoCSS(),
+    AutoImport({
       resolvers: [ArcoResolver()],
     }),
     Components({
