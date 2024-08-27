@@ -8,8 +8,8 @@
 -->
 <template>
   <a-layout-header class="layout-headerbox">
-    <div class="flex flex-auto">
-      <img src="@/assets/logo.png" alt="log">
+    <div class="flex items-center ">
+      <img src="@/assets/logo.png" alt="log" class="h-12 w-12 mr-2">
       <div>xxxx管理平台</div>
     </div>
       <!-- <a-dropdown>
