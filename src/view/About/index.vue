@@ -1,18 +1,15 @@
 <template>
   <div style="width: 100vw; height:100vh;font-size:37.5px">
-    <view >
     <div class="page-main">
       <div class="page-main-huanbg">
         <div class="cente-bg"></div>
       </div>
       <div class="ring">
-        <div class="ring-item" v-for="item,index in userStore.apps" :class="'ring-item' + (index+1)" :key="item.appId"  @click="goTarget(item)">
-            <img :src="item.iconUrl || '@/assets/img/cyjsc.png'" alt="icon" :onerror="imgError">
-            <span>{{ item }}</span>
+        <div class="ring-item" v-for="item,index in apps" :class="'ring-item' + (index+1)" :key="item.appId"  @click="goTarget(item)">
+            <div>{{ item }}</div>
         </div>
       </div>
     </div>
-  </view>
   </div>
 
 </template>
@@ -25,12 +22,12 @@ function imgError(event){
 	 img.onerror = null; //防止闪图
 }
 
-const apps = ref([1,2,3,4,5,6]);
+const apps = ref([1,2,3,4,5,6,7]);
 </script>
 
 <style scoped lang="scss">
-$themes:6;
-$deg: 60;
+$themes:7;
+$deg: 52;
  .page-main {
   width: 100vw;
   height: 100vh;
@@ -71,11 +68,11 @@ $deg: 60;
   width:82.7vw;
   height: 82.7vw;
   border-radius: 100%;
-  background: rgba(0,0,0,.3);
+  // background: rgba(0,0,0,.3);
   position: absolute;
   left: 50%;
   top: 10%;
-  z-index: 2;
+  // z-index: 1;
   margin-left: -41.35vw;
   margin-top: -20.675vw;
   transform: rotateX(-73deg) ;
@@ -97,28 +94,27 @@ $deg: 60;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  img {
-      width: 7.8125vw;
-      height: 7.552vw;
-    }
-    span {
-      font-size: 30px;
-      font-weight: 700;
-      color: #CCD0D4;
-    }
+  div {
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 153, 197);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1;
+  }
 }
 }
  
- @for $i from 1 through 6 {
+ @for $i from 1 through $themes {
   .ring-item#{$i} {
     animation: move#{$i} 60s linear infinite;
   }
   @keyframes move#{$i} {
     from {
-      transform: rotateZ(#{-1 * $i * $deg + 'deg'}) translateX(41.35vw) rotateZ(#{ $i * $deg + 'deg'}) rotateY(-70deg);
+      transform: rotateZ(#{-1 * ($i * $deg % 360) + 'deg'}) translateX(41.35vw) rotateZ(#{ ($i * $deg % 360) + 'deg'}) rotateY(-70deg);
     }
     to {
-      transform: rotateZ(#{360 -  $i * $deg  + 'deg'}) translateX(41.35vw) rotateZ(#{ $i * $deg - 360 + 'deg'}) rotateY(-70deg);
+      transform: rotateZ(#{360 -  ($i * $deg % 360)  + 'deg'}) translateX(41.35vw) rotateZ(#{ ($i * $deg % 360) - 360 + 'deg'}) rotateY(-70deg);
     }
   }
 }
