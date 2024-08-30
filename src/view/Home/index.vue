@@ -8,7 +8,7 @@
 -->
 <template>
   <div class="page-container" id="print-page">
-    <h1 @click="handleClick">打印pdf测试</h1>
+    <h1 @click="handleClick">椭圆运动</h1>
     <p>testtesttesttesttesttesttesttesttesttesttestppppppppppppppppppppppppppppppppp</p>
     <p>tetesttesttesttesttesttesttesttesttesttesttestst</p>
     <p>testesttesttesttesttesttesttesttestt</p>
